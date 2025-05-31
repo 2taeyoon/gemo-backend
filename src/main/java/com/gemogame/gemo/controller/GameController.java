@@ -10,6 +10,6 @@ public class GameController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello from Gemo Backend!";
+        return "게모 벡엔드";
     }
 }
