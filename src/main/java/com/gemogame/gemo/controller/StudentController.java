@@ -29,19 +29,19 @@ public class StudentController {
     // 생성자(Constructor)야. StudentController가 실행될 때
     // StudentRepository를 외부에서 받아서 이 클래스 안에서 쓸 수 있게 만들어주는 거지
     public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+      this.studentRepository = studentRepository;
     }
 
-    // --------------------------
+    // ----------------------------------
     // 💡 GET 요청: 전체 학생 목록 조회
-    // --------------------------
+    // ----------------------------------
 
     // 클라이언트가 GET 방식으로 /api/student로 요청하면 실행돼
     // 모든 학생 데이터를 List(목록) 형태로 가져오는 거야
     @GetMapping
     public List<Student> getAllStudents() {
-        // DB에 있는 모든 학생 데이터를 가져와서 그대로 리턴해줘
-        return studentRepository.findAll();
+			// DB에 있는 모든 학생 데이터를 가져와서 그대로 리턴해줘
+			return studentRepository.findAll();
     }
 
     // --------------------------
@@ -52,7 +52,7 @@ public class StudentController {
     // 요청 본문(body)에 담긴 학생 정보를 읽어서 DB에 저장하는 거야
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
-        // 받은 학생 정보를 저장하고, 저장된 결과를 그대로 리턴해줘
-        return studentRepository.save(student);
+			// 받은 학생 정보를 저장하고, 저장된 결과를 그대로 리턴해줘
+			return studentRepository.save(student);
     }
 }

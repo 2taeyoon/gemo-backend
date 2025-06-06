@@ -15,11 +15,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // → 그 테이블의 기본키(id)의 타입은 Long이야
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-    // 지금은 아무 메서드 없어도 돼
-    // 왜냐면 JpaRepository가 기본적인 거 다 만들어줘
-    // 예를 들면: findAll(), save(), deleteById(), findById() 같은 것들
+	// 지금은 아무 메서드 없어도 돼
+	// 왜냐면 JpaRepository가 기본적인 거 다 만들어줘
+	// 예를 들면: findAll(), save(), deleteById(), findById() 같은 것들
 
-    // 나중에 필요하면 여기 안에 직접 메서드 추가해서
-    // 예: 이름으로 찾기 같은 것도 할 수 있어
-    // List<Student> findByName(String name); ← 이런 식으로
+	// 나중에 필요하면 여기 안에 직접 메서드 추가해서
+	// 예: 이름으로 찾기 같은 것도 할 수 있어
+	// List<Student> findByName(String name); ← 이런 식으로
 }

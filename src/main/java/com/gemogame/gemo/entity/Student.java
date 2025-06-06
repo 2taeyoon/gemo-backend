@@ -19,18 +19,18 @@ import lombok.NoArgsConstructor;
 @Setter
 @NoArgsConstructor
 public class Student {
-    // 모든 데이터는 고유한 id 값으로 구분돼야 하니까 필수
-	  // 기본 키 값을 자동으로 증가시키도록 설정
-    // MySQL에서는 이걸 AUTO_INCREMENT라고함
-    // GenerationType.IDENTITY는 DB가 알아서 증가시켜줌
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    // 학생의 이름을 저장할 필드예요.
-    // 특별한 어노테이션이 없으면, 컬럼명은 필드명과 같고 문자열로 저장돼요.
-    private String name;
+	// 모든 데이터는 고유한 id 값으로 구분돼야 하니까 필수
+	// 기본 키 값을 자동으로 증가시키도록 설정
+	// MySQL에서는 이걸 AUTO_INCREMENT라고함
+	// GenerationType.IDENTITY는 DB가 알아서 증가시켜줌
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	// 학생의 이름을 저장할 필드예요.
+	// 특별한 어노테이션이 없으면, 컬럼명은 필드명과 같고 문자열로 저장돼요.
+	private String name;
 
-    // 학생의 나이를 저장할 필드예요.
-    // 정수형 숫자로 저장됩니다.
-    private Integer age;
+	// 학생의 나이를 저장할 필드예요.
+	// 정수형 숫자로 저장됩니다.
+	private Integer age;
 }
