@@ -1,10 +1,10 @@
-package com.gemogame.gemo;
+package com.gemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GemoApplicationTests {
+class GemoBackApplicationTests {
 
 	@Test
 	void contextLoads() {

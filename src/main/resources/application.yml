@@ -1,5 +1,7 @@
-spring.application.name=demo
 spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/wordgame
+
+cors:
+  allowed-origins: "http://localhost:3000"
