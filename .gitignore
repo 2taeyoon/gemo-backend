@@ -32,3 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 gptQuestion
+
+# env files
+.env
+.env.local
