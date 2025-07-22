@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/wordgame
+      uri: mongodb://localhost:27017/gemo
 
 cors:
   allowed-origins: "http://localhost:3000"
