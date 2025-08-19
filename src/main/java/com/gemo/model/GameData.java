@@ -1,14 +1,7 @@
 package com.gemo.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor 
-@AllArgsConstructor
 public class GameData {
     // 코들 게임 관련 통계
     private int kodleGameWins = 0;                    // 코들 게임 총 승리 횟수
@@ -32,4 +25,58 @@ public class GameData {
     // 기타 게임 통계
     private LocalDateTime lastGamePlayed;  // 마지막 게임 플레이 시간
     private int totalGamesPlayed = 0;      // 총 게임 플레이 횟수
+    
+    // 기본 생성자
+    public GameData() {
+    }
+    
+    // 전체 생성자
+    public GameData(int kodleGameWins, int kodleGameDefeat, int kodleSuccessiveVictory, 
+                   int kodleMaximumSuccessiveVictory, int gameWins, int consecutiveWins, 
+                   int totalXp, int currentXp, int level, LocalDateTime lastAttendance, 
+                   int attendanceStreak, LocalDateTime lastGamePlayed, int totalGamesPlayed) {
+        this.kodleGameWins = kodleGameWins;
+        this.kodleGameDefeat = kodleGameDefeat;
+        this.kodleSuccessiveVictory = kodleSuccessiveVictory;
+        this.kodleMaximumSuccessiveVictory = kodleMaximumSuccessiveVictory;
+        this.gameWins = gameWins;
+        this.consecutiveWins = consecutiveWins;
+        this.totalXp = totalXp;
+        this.currentXp = currentXp;
+        this.level = level;
+        this.lastAttendance = lastAttendance;
+        this.attendanceStreak = attendanceStreak;
+        this.lastGamePlayed = lastGamePlayed;
+        this.totalGamesPlayed = totalGamesPlayed;
+    }
+    
+    // Getter 메서드들
+    public int getKodleGameWins() { return kodleGameWins; }
+    public int getKodleGameDefeat() { return kodleGameDefeat; }
+    public int getKodleSuccessiveVictory() { return kodleSuccessiveVictory; }
+    public int getKodleMaximumSuccessiveVictory() { return kodleMaximumSuccessiveVictory; }
+    public int getGameWins() { return gameWins; }
+    public int getConsecutiveWins() { return consecutiveWins; }
+    public int getTotalXp() { return totalXp; }
+    public int getCurrentXp() { return currentXp; }
+    public int getLevel() { return level; }
+    public LocalDateTime getLastAttendance() { return lastAttendance; }
+    public int getAttendanceStreak() { return attendanceStreak; }
+    public LocalDateTime getLastGamePlayed() { return lastGamePlayed; }
+    public int getTotalGamesPlayed() { return totalGamesPlayed; }
+    
+    // Setter 메서드들
+    public void setKodleGameWins(int kodleGameWins) { this.kodleGameWins = kodleGameWins; }
+    public void setKodleGameDefeat(int kodleGameDefeat) { this.kodleGameDefeat = kodleGameDefeat; }
+    public void setKodleSuccessiveVictory(int kodleSuccessiveVictory) { this.kodleSuccessiveVictory = kodleSuccessiveVictory; }
+    public void setKodleMaximumSuccessiveVictory(int kodleMaximumSuccessiveVictory) { this.kodleMaximumSuccessiveVictory = kodleMaximumSuccessiveVictory; }
+    public void setGameWins(int gameWins) { this.gameWins = gameWins; }
+    public void setConsecutiveWins(int consecutiveWins) { this.consecutiveWins = consecutiveWins; }
+    public void setTotalXp(int totalXp) { this.totalXp = totalXp; }
+    public void setCurrentXp(int currentXp) { this.currentXp = currentXp; }
+    public void setLevel(int level) { this.level = level; }
+    public void setLastAttendance(LocalDateTime lastAttendance) { this.lastAttendance = lastAttendance; }
+    public void setAttendanceStreak(int attendanceStreak) { this.attendanceStreak = attendanceStreak; }
+    public void setLastGamePlayed(LocalDateTime lastGamePlayed) { this.lastGamePlayed = lastGamePlayed; }
+    public void setTotalGamesPlayed(int totalGamesPlayed) { this.totalGamesPlayed = totalGamesPlayed; }
 } 

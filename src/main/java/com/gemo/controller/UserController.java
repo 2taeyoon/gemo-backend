@@ -2,8 +2,9 @@ package com.gemo.controller;
 
 import com.gemo.model.User;
 import com.gemo.service.UserService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "${cors.allowed-origins}")
-@RequiredArgsConstructor
-@Slf4j
 public class UserController {
     
-    private final UserService userService;
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+    
+    @Autowired
+    private UserService userService;
     
     /**
      * 사용자 프로필 조회

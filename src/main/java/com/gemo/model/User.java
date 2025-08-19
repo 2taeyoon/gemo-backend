@@ -1,17 +1,11 @@
 package com.gemo.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Document(collection = "users")
 public class User {
     @Id
@@ -35,4 +29,44 @@ public class User {
     
     // 사용자 상태
     private boolean active = true;  // 활성 사용자 여부
+    
+    // 기본 생성자
+    public User() {
+    }
+    
+    // 전체 생성자
+    public User(String id, String email, String name, String picture, String googleId, 
+                GameData gameData, LocalDateTime createdAt, LocalDateTime updatedAt, boolean active) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.picture = picture;
+        this.googleId = googleId;
+        this.gameData = gameData;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.active = active;
+    }
+    
+    // Getter 메서드들
+    public String getId() { return id; }
+    public String getEmail() { return email; }
+    public String getName() { return name; }
+    public String getPicture() { return picture; }
+    public String getGoogleId() { return googleId; }
+    public GameData getGameData() { return gameData; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public boolean isActive() { return active; }
+    
+    // Setter 메서드들
+    public void setId(String id) { this.id = id; }
+    public void setEmail(String email) { this.email = email; }
+    public void setName(String name) { this.name = name; }
+    public void setPicture(String picture) { this.picture = picture; }
+    public void setGoogleId(String googleId) { this.googleId = googleId; }
+    public void setGameData(GameData gameData) { this.gameData = gameData; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+    public void setActive(boolean active) { this.active = active; }
 } 
