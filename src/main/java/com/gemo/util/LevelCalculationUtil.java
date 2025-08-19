@@ -1,12 +1,10 @@
 package com.gemo.util;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LevelCalculationUtil {
     
-    @Data
     public static class LevelInfo {
         private int level;
         private int currentXp;
@@ -15,6 +13,10 @@ public class LevelCalculationUtil {
             this.level = level;
             this.currentXp = currentXp;
         }
+        
+        // Getter 메서드들
+        public int getLevel() { return level; }
+        public int getCurrentXp() { return currentXp; }
     }
     
     /**

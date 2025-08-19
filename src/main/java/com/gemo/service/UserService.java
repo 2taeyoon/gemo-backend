@@ -4,19 +4,21 @@ import com.gemo.model.User;
 import com.gemo.model.GameData;
 import com.gemo.repository.UserRepository;
 import com.gemo.util.LevelCalculationUtil;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
-@Slf4j
 public class UserService {
     
-    private final UserRepository userRepository;
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
+    
+    @Autowired
+    private UserRepository userRepository;
     
     /**
      * 사용자 조회 (이메일로)
