@@ -30,6 +30,7 @@ public class User {
     
     // 사용자 상태
     private boolean active = true;  // 활성 사용자 여부
+    private boolean superAdmin = false; // 슈퍼 관리자 권한 여부
     
     // 기본 생성자
     public User() {
@@ -37,7 +38,7 @@ public class User {
     
     // 전체 생성자
     public User(String id, String email, String name, String picture, String googleId, String naverId,
-                GameData gameData, LocalDateTime createdAt, LocalDateTime updatedAt, boolean active) {
+                GameData gameData, LocalDateTime createdAt, LocalDateTime updatedAt, boolean active, boolean superAdmin) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -48,6 +49,7 @@ public class User {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.active = active;
+        this.superAdmin = superAdmin;
     }
     
     // Getter 메서드들
@@ -61,6 +63,7 @@ public class User {
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public boolean isActive() { return active; }
+    public boolean isSuperAdmin() { return superAdmin; }
     
     // Setter 메서드들
     public void setId(String id) { this.id = id; }
@@ -73,4 +76,5 @@ public class User {
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
     public void setActive(boolean active) { this.active = active; }
+    public void setSuperAdmin(boolean superAdmin) { this.superAdmin = superAdmin; }
 } 
