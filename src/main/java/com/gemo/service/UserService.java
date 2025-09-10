@@ -195,18 +195,46 @@ public class UserService {
         }
         
         // 연속 출석 계산
+        int newStreakCount;
         if (lastAttendance != null && lastAttendance.toLocalDate().equals(now.toLocalDate().minusDays(1))) {
-            gameData.setAttendanceStreak(gameData.getAttendanceStreak() + 1);
+            newStreakCount = gameData.getAttendanceStreak() + 1;
         } else {
-            gameData.setAttendanceStreak(1); // 연속 출석 초기화
+            newStreakCount = 1; // 연속 출석 초기화
         }
+        gameData.setAttendanceStreak(newStreakCount);
+        
+        // 업적 처리
+        processAttendanceAchievements(gameData, newStreakCount);
         
         gameData.setLastAttendance(now);
         user.setUpdatedAt(LocalDateTime.now());
         
-        log.info("📅 출석 체크: {} - 연속 출석: {}일", user.getEmail(), gameData.getAttendanceStreak());
+        log.info("📅 출석 체크: {} - 연속 출석: {}일", user.getEmail(), newStreakCount);
         
         return userRepository.save(user);
+    }
+    
+    /**
+     * 출석 업적 처리
+     */
+    private void processAttendanceAchievements(GameData gameData, int streakCount) {
+        if (gameData.getAchievements() == null) {
+            gameData.setAchievements(new com.gemo.model.Achievements());
+        }
+        
+        // 연속 출석 일수에 따른 업적 달성 확인
+        String[] achievementKeys = {"d1", "d7", "d14", "d21", "d28"};
+        int[] requiredDays = {1, 7, 14, 21, 28};
+        
+        for (int i = 0; i < achievementKeys.length; i++) {
+            String key = achievementKeys[i];
+            int required = requiredDays[i];
+            
+            if (streakCount >= required && !gameData.getAchievements().isAchievementCompleted(key)) {
+                gameData.getAchievements().completeAchievement(key);
+                log.info("🏆 업적 달성: {} - {}", key, gameData.getAchievements().getAttendance().get(key).getText());
+            }
+        }
     }
     
     /**

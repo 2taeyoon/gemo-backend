@@ -171,7 +171,13 @@ public class UserController {
         data.put("email", user.getEmail());
         data.put("name", user.getName());
         data.put("picture", user.getPicture());
+        
+        // 게임 데이터 (업적 정보 포함하도록 보장)
+        if (user.getGameData().getAchievements() == null) {
+            user.getGameData().setAchievements(new com.gemo.model.Achievements());
+        }
         data.put("gameData", user.getGameData());
+        
         data.put("createdAt", user.getCreatedAt());
         data.put("updatedAt", user.getUpdatedAt());
         return data;
@@ -202,6 +208,12 @@ public class UserController {
         Map<String, Object> data = createGameResponseData(user);
         data.put("attendanceStreak", user.getGameData().getAttendanceStreak());
         data.put("lastAttendance", user.getGameData().getLastAttendance());
+        
+        // 업적 정보 추가
+        if (user.getGameData().getAchievements() != null) {
+            data.put("achievements", user.getGameData().getAchievements());
+        }
+        
         return data;
     }
     
