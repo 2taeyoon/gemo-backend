@@ -26,6 +26,9 @@ public class GameData {
     private LocalDateTime lastGamePlayed;  // 마지막 게임 플레이 시간
     private int totalGamesPlayed = 0;      // 총 게임 플레이 횟수
     
+    // 업적 시스템
+    private Achievements achievements = new Achievements();  // 업적 정보
+    
     // 기본 생성자
     public GameData() {
     }
@@ -34,7 +37,8 @@ public class GameData {
     public GameData(int kodleGameWins, int kodleGameDefeat, int kodleSuccessiveVictory, 
                    int kodleMaximumSuccessiveVictory, int gameWins, int consecutiveWins, 
                    int totalXp, int currentXp, int level, LocalDateTime lastAttendance, 
-                   int attendanceStreak, LocalDateTime lastGamePlayed, int totalGamesPlayed) {
+                   int attendanceStreak, LocalDateTime lastGamePlayed, int totalGamesPlayed,
+                   Achievements achievements) {
         this.kodleGameWins = kodleGameWins;
         this.kodleGameDefeat = kodleGameDefeat;
         this.kodleSuccessiveVictory = kodleSuccessiveVictory;
@@ -48,6 +52,7 @@ public class GameData {
         this.attendanceStreak = attendanceStreak;
         this.lastGamePlayed = lastGamePlayed;
         this.totalGamesPlayed = totalGamesPlayed;
+        this.achievements = achievements != null ? achievements : new Achievements();
     }
     
     // Getter 메서드들
@@ -64,6 +69,7 @@ public class GameData {
     public int getAttendanceStreak() { return attendanceStreak; }
     public LocalDateTime getLastGamePlayed() { return lastGamePlayed; }
     public int getTotalGamesPlayed() { return totalGamesPlayed; }
+    public Achievements getAchievements() { return achievements; }
     
     // Setter 메서드들
     public void setKodleGameWins(int kodleGameWins) { this.kodleGameWins = kodleGameWins; }
@@ -79,4 +85,5 @@ public class GameData {
     public void setAttendanceStreak(int attendanceStreak) { this.attendanceStreak = attendanceStreak; }
     public void setLastGamePlayed(LocalDateTime lastGamePlayed) { this.lastGamePlayed = lastGamePlayed; }
     public void setTotalGamesPlayed(int totalGamesPlayed) { this.totalGamesPlayed = totalGamesPlayed; }
+    public void setAchievements(Achievements achievements) { this.achievements = achievements != null ? achievements : new Achievements(); }
 } 
